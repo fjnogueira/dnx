@@ -129,6 +129,7 @@ namespace Microsoft.Framework.Runtime.Roslyn
                 project,
                 target.TargetFramework,
                 target.Configuration,
+                incomingReferences,
                 () => resourcesResolver()
                     .Select(res => new ResourceDescription(
                         res.Name,
@@ -176,7 +177,7 @@ namespace Microsoft.Framework.Runtime.Roslyn
                 var precompSw = Stopwatch.StartNew();
                 foreach (var module in compilationContext.Modules)
                 {
-                    module.BeforeCompile(compilationContext);
+                    module.BeforeCompile(compilationContext.BeforeCompileContext);
                 }
 
                 precompSw.Stop();
@@ -193,7 +194,7 @@ namespace Microsoft.Framework.Runtime.Roslyn
         {
             // This is temporary, eventually we'll want a project.json feature for this
             var keyFile = Environment.GetEnvironmentVariable(EnvironmentNames.BuildKeyFile);
-            if(!string.IsNullOrEmpty(keyFile))
+            if (!string.IsNullOrEmpty(keyFile))
             {
 #if DNX451
                 var delaySignString = Environment.GetEnvironmentVariable(EnvironmentNames.BuildDelaySign);
