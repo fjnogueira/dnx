@@ -13,7 +13,7 @@ namespace Microsoft.Framework.Runtime.Roslyn.Tests
     public class CompilationContextFacts
     {
         [Fact]
-        public void Construct()
+        public void DefaultConstructorInitializeCorrectly()
         {
             var compilation = CSharpCompilation.Create("fakecompilation");
             var fakeProject = new MockCompilationProject();

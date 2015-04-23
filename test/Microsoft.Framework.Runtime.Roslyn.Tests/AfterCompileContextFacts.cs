@@ -16,7 +16,7 @@ namespace Microsoft.Framework.Runtime.Roslyn.Tests
         }
 
         [Fact]
-        public void DefaultContructor()
+        public void DefaultConstructorSetAllPropertiesNull()
         {
             // nothing is set
             Assert.Null(_target.Compilation);
@@ -28,7 +28,7 @@ namespace Microsoft.Framework.Runtime.Roslyn.Tests
         }
 
         [Fact]
-        public void SetCompilation()
+        public void PropertyCompilationIsSettable()
         {
             var compilation = CSharpCompilation.Create("nothing");
 
