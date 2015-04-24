@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Open Technologies, Inc. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using Microsoft.AspNet.Testing.xunit;
 using Microsoft.Framework.Runtime.Helpers;
 using NuGet;
 using Xunit;
@@ -9,7 +10,8 @@ namespace Microsoft.Framework.Runtime.Tests
 {
     public class GacDependencyResolverFacts
     {
-        [Theory]
+        [ConditionalTheory]
+        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         [InlineData("mscorlib", "4.0.0.0", "dnx451", true)]
         [InlineData("mscorlib", "1.0.0.0", "dnx451", false)]
         [InlineData("mscorlib", "4.0.0.0", "dnxcore50", false)]
