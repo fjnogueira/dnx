@@ -12,6 +12,7 @@ namespace Microsoft.Framework.Runtime.Tests
     {
         [ConditionalTheory]
         [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
+        [OSSkipCondition(OperatingSystems.Linux | OperatingSystems.MacOSX)]
         [InlineData("mscorlib", "4.0.0.0", "dnx451", true)]
         [InlineData("mscorlib", "1.0.0.0", "dnx451", false)]
         [InlineData("mscorlib", "4.0.0.0", "dnxcore50", false)]
