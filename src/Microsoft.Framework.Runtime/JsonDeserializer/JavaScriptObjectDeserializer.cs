@@ -1,13 +1,12 @@
 ﻿// Copyright (c) Microsoft Open Technologies, Inc. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-namespace System.Web.Script.Serialization
+namespace Micrsoft.Framework.Runtime.JsonDeserializer
 {
     using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Text;
-    using System.Web.Util;
 
     internal class JavaScriptObjectDeserializer
     {
